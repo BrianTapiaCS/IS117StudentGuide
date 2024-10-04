@@ -6,7 +6,7 @@
 ## Steps to complete:
 1.  Setup node version 20
 2.  Clone my repo
-3.  cd 117_linux
+3.  cd IS117StudentGuide
 4.  run: npm install
 5.  run the server npm run start
 6.  Go to see the site localhost:3000
