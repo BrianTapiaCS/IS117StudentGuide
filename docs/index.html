@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Linux Commands List</title>
+    <title>Command Line Survival Guide for GIT and Linux</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-5sAR7xN1Nv6+BlhYzzZ90R0SLR9E+oWsqNij9Zqqy4M5h3CI8Dy+Fv5nsFQexE7k" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -26,17 +26,106 @@
             font-weight: bold;
         }
 
-        #commands {
+        #hero {
+            background-color: #d1e3f0;
+            padding: 80px 20px;
+            text-align: center;
+            font-style: italic;
+            color: #0d1b2a;
+            position: relative;
+        }
+
+        #hero img {
+            max-width: 50%;
+            height: auto;
+            margin: 30px auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #hero p {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        #hero button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #ffc107;
+            color: #0d1b2a;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        #hero button:hover {
+            background-color: #ff9800;
+        }
+
+        #highlights {
+            display: flex;
+            justify-content: space-between;
+            padding: 60px 20px;
+            background-color: #ffffff;
+            border-top: 4px solid #0d1b2a;
+            border-bottom: 4px solid #0d1b2a;
+            flex-wrap: wrap;
+        }
+
+        #highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #highlights li {
+            margin-bottom: 20px;
+        }
+
+        #highlights a {
+            color: #0d1b2a;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        #highlights a:hover {
+            text-decoration: underline;
+        }
+
+        #highlights .testimonial {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-left: 5px solid #0d1b2a;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            font-style: italic;
+            font-size: 1.3em;
+            border-radius: 8px;
+            flex-basis: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #highlights .testimonial img {
+            max-width: 60px;
+            height: auto;
+            border-radius: 50%;
+            float: left;
+            margin-right: 15px;
+        }
+
+        #guide {
+            background-color: #d1e3f0;
             padding: 60px 20px;
             text-align: center;
-            background-color: #ffffff;
             color: #0d1b2a;
         }
 
-        .command-section {
+        .guide-section {
             margin-bottom: 40px;
             padding: 30px;
-            background-color: #f8f9fa;
+            background-color: #ffffff;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             max-width: 800px;
@@ -44,14 +133,29 @@
             margin-right: auto;
         }
 
-        .command-section h3 {
+        .guide-section h3 {
             margin-bottom: 15px;
             color: #0d1b2a;
             font-weight: bold;
         }
 
+        .guide-section button {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            background-color: #ffc107;
+            color: #0d1b2a;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .guide-section button:hover {
+            background-color: #ff9800;
+        }
+
         footer {
-            background-color: #0d1b2a;
+            background: linear-gradient(90deg, #0d1b2a, #243b55);
             color: white;
             text-align: center;
             padding: 30px;
@@ -69,69 +173,98 @@
         }
 
         footer a {
-            color: #fdd835;
+            color: #ffc107;
             text-decoration: none;
         }
 
         footer a:hover {
             text-decoration: underline;
         }
+
+        .resources {
+            background-color: #e6f7e6;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .resources h3 {
+            color: #0d1b2a;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            #highlights {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - Authority Principle -->
     <header>
-        <h1>Linux Commands List</h1>
-        <p>Master the essential Linux commands to navigate and control your system like a pro.</p>
+        <h1>Command Line Survival Guide for GIT and Linux</h1>
+        <p>Trusted Resource for Over 500 Students</p>
     </header>
 
-    <!-- Commands Section -->
-    <section id="commands">
-        <div class="command-section">
-            <h3>ls</h3>
-            <p>List directory contents. Use <code>ls -la</code> to see all files, including hidden ones, with detailed information.</p>
-        </div>
-        <div class="command-section">
-            <h3>cd</h3>
-            <p>Change the current directory. Use <code>cd /path/to/directory</code> to navigate to a specific folder.</p>
-        </div>
-        <div class="command-section">
-            <h3>pwd</h3>
-            <p>Print the current working directory. Useful to know where you are in the filesystem.</p>
-        </div>
-        <div class="command-section">
-            <h3>mkdir</h3>
-            <p>Create a new directory. Use <code>mkdir foldername</code> to create a new folder.</p>
-        </div>
-        <div class="command-section">
-            <h3>rm</h3>
-            <p>Remove files or directories. Use <code>rm -r directoryname</code> to delete a directory and its contents.</p>
-        </div>
-        <div class="command-section">
-            <h3>cp</h3>
-            <p>Copy files or directories. Use <code>cp source destination</code> to copy files to another location.</p>
-        </div>
-        <div class="command-section">
-            <h3>mv</h3>
-            <p>Move or rename files. Use <code>mv oldname newname</code> to rename, or <code>mv filename /new/path/</code> to move files.</p>
-        </div>
-        <div class="command-section">
-            <h3>cat</h3>
-            <p>Concatenate and display file content. Use <code>cat filename</code> to view the content of a file.</p>
-        </div>
-        <div class="command-section">
-            <h3>chmod</h3>
-            <p>Change file permissions. Use <code>chmod 755 filename</code> to modify permissions for a file.</p>
-        </div>
-        <div class="command-section">
-            <h3>chown</h3>
-            <p>Change file owner and group. Use <code>chown user:group filename</code> to change the ownership of a file.</p>
+    <!-- Hero Section (Z-pattern layout emphasis) -->
+    <section id="hero">
+        <p>Explore the history of the internet and master essential tech survival skills like Git, Linux, and more.</p>
+        <img src="image.png" alt="Tech Exploration">
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-warning" onclick="location.href='#guide'">Get Started</button>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Social Proof - Highlights Section -->
+    <section id="highlights" class="container">
+        <ul class="list-group col-md-5 mb-4">
+            <li class="list-group-item"><a href="git.html">GIT: version control at your fingertips</a></li>
+            <li class="list-group-item"><a href="linux.html">Linux: master the open-source OS</a></li>
+            <li class="list-group-item"><a href="pre-internet.html">Pre-Internet Era</a></li>
+            <li class="list-group-item"><a href="internet-birth.html">The Birth of the Internet</a></li>
+            <li class="list-group-item"><a href="web1.0.html">Web 1.0: The Early Web</a></li>
+            <li class="list-group-item"><a href="web2.0.html">Web 2.0: Dynamic Web</a></li>
+        </ul>
+        <div class="testimonial col-md-6">
+            <img src="student.jpg" alt="Student Testimonial">
+            "The Command Line Survival Guide has been instrumental in my learning journey. It provided me with the essential tools I needed to succeed." - John Smith, Student
+            <br><br>
+            "This guide made learning Git and Linux incredibly straightforward. Now I feel much more confident in my technical abilities." - Jane Doe, Junior Developer
+        </div>
+    </section>
+
+    <!-- Guide Section with Commitment & Consistency Principle -->
+    <section id="guide">
+        <h2>Student Tech Survival Guide</h2>
+        <div class="guide-section">
+            <h3><a href="git.html">GIT Basics</a></h3>
+            <p>Master essential commands like git clone, git commit, and git push. Version control is the foundation of modern development practices.</p>
+            <button class="btn btn-warning" onclick="location.href='git_cheat_sheet.html'">Download Git Cheat Sheet</button>
+        </div>
+        <div class="guide-section">
+            <h3><a href="linux.html">Linux Essentials</a></h3>
+            <p>Learn to navigate the Linux file system, use essential commands, and automate tasks with scripts.</p>
+            <button class="btn btn-warning" onclick="location.href='linux_commands_list.html'">Download Linux Commands List</button>
+        </div>
+    </section>
+
+    <!-- Resources with Reciprocity Principle -->
+    <section class="resources container mt-5">
+        <h3>Free Resources</h3>
+        <p>To help you succeed, we offer free downloadable resources:</p>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="command_line_cheat_sheet.pdf">Command Line Cheat Sheet</a> - Get a handy reference for essential command line commands.</li>
+            <li class="list-group-item"><a href="linux_guide.pdf">Linux Survival Guide</a> - Learn how to navigate and use Linux effectively.</li>
+            <li class="list-group-item"><a href="git_guide.pdf">Git Essentials Guide</a> - Understand the basics of version control with Git.</li>
+        </ul>
+    </section>
+
+    <!-- Footer with Reciprocity Principle -->
     <footer>
-        <p>Master these commands to become a Linux expert!</p>
+        <p>Trusted by over 500 students to jumpstart their tech career. Download free resources and master the command line today!</p>
         <p>Connect with us for more resources:</p>
         <ul>
             <li><a href="#">Twitter</a></li>
