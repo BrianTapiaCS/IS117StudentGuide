@@ -3,19 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Web 1.0: The Early Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2a3d45;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #3c6478;
+            margin-bottom: 15px;
+        }
+
+        .topic {
+            margin-bottom: 25px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #2a3d45;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1em;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #70c1b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Web 1.0: The Early Web</h1>
+    <header>
+        Web 1.0: The Early Web
+    </header>
 
-    <h2>Tim Berners-Lee</h2>
-    <p>Tim Berners-Lee, a British computer scientist, is credited with inventing the World Wide Web, a system that revolutionized how information is shared online. He developed both HTML (HyperText Markup Language) and HTTP (HyperText Transfer Protocol), which became the foundational technologies of the web. His vision was to create a universal platform for linking and sharing documents, making the internet accessible to everyone. In 1989, while working at CERN, Berners-Lee introduced HTML to create web pages and HTTP to enable their transmission, creating the first framework for web browsing and information sharing.</p>
+    <main>
+        <section class="topic">
+            <h2>Static Web Pages</h2>
+            <ul>
+                <li><strong>What:</strong> Web 1.0 consisted primarily of static web pages that displayed content but did not interact significantly with the user.</li>
+                <li><strong>When:</strong> Web 1.0 was prevalent from the early 1990s to the early 2000s.</li>
+                <li><strong>Why:</strong> The primary focus was on providing information rather than interactivity, and web pages were often created by hand using HTML.</li>
+                <li><strong>How:</strong> Static HTML pages were linked together, and users could navigate using hyperlinks without any dynamic interaction or personalization.</li>
+            </ul>
+            <p>Web 1.0 represented the first phase of the World Wide Web, where the main focus was to share information. Users were able to consume content but had little to no way to contribute or interact with the site beyond clicking links.</p>
+        </section>
 
-    <h2>JavaScript</h2>
-    <p>JavaScript, developed by Brendan Eich in 1995 while he was working at Netscape, brought a new level of interactivity to the web. Before its creation, web pages were largely static, but JavaScript allowed for dynamic behavior, enabling user interactions without needing to reload the entire page. JavaScript quickly became the standard for client-side scripting, transforming the web into a more engaging, responsive platform. Today, it remains one of the most widely used programming languages for creating interactive websites and web applications.</p>
+        <section class="topic">
+            <h2>Limitations of Web 1.0</h2>
+            <ul>
+                <li><strong>Limited Interaction:</strong> The content was static, meaning users could read but not contribute or interact.</li>
+                <li><strong>Content Creators:</strong> Only webmasters or individuals with HTML knowledge could create or update web content.</li>
+                <li><strong>No Personalization:</strong> There was no way to personalize content for individual users or collect user data for improved services.</li>
+            </ul>
+            <p>Web 1.0 was largely read-only, which limited user engagement. It lacked the dynamic, user-generated content that characterizes later versions of the web.</p>
+        </section>
 
-    <!-- You can follow this format to add more detailed sections for CSS, Perl, PHP, Linux, and Early Search Engines -->
+        <section class="topic">
+            <h2>Technologies Behind Web 1.0</h2>
+            <ul>
+                <li><strong>HTML:</strong> HyperText Markup Language (HTML) was the primary language used to create static web pages.</li>
+                <li><strong>HTTP:</strong> HyperText Transfer Protocol (HTTP) was used to request and transmit web pages over the internet.</li>
+                <li><strong>Browsers:</strong> Early web browsers like Mosaic and Netscape Navigator were used to navigate the World Wide Web.</li>
+            </ul>
+            <p>Web 1.0 was built on a simple set of technologies designed to share static information. HTML provided the structure, HTTP allowed communication, and early browsers made the web accessible to the public.</p>
+        </section>
+    </main>
 
-    <a href="index.html">Back to Home</a>
+    <footer>
+        <a href="index.html">Back to Home</a>
+    </footer>
 </body>
 </html>
