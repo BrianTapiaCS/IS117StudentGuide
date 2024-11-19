@@ -1,0 +1,54 @@
+'''
+Brian Tapia
+CS106 003
+10/22/2024
+
+'''
+
+# 1
+def hasFinalLetter(strList, letters):
+    rtnList = []
+    for string in strList:
+        if string and string[-1] in letters:
+            rtnList.append(string)
+
+    return rtnList
+
+# Test Cases for Problem 1
+list1 = ["to", "be", "or", "not", "to", "be"]
+string1 = "aeiouAIEOU"
+
+list2 = ["tomorrow", "and", "tomorrow", "and", "tomorrow"]
+string2 = "wxyz"
+
+list3 = ["friends", "romans", "countrymen," "lend", "me", "your", "ears"]
+string3 = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG" # note: case matters
+
+print(hasFinalLetter(list1, string1))
+print(hasFinalLetter(list2, string2))
+print(hasFinalLetter(list3, string3))
+
+
+# 2
+#   a.
+def isDivisible(maxInt, twoInts):
+    rtnList = []
+    for i in range(maxInt):
+        if (i % twoInts[0] == 0) and (i % twoInts[1] == 0):
+            rtnList.append(i)
+
+    return rtnList
+
+#   b.
+int1 = 100
+tup1 = (2, 5)
+
+int2 = 42
+tup2 = (2, 3)
+
+int3 = 100
+tup3 = (1, 100)
+
+print(isDivisible(int1, tup1))
+print(isDivisible(int2, tup2))
+print(isDivisible(int3, tup3))

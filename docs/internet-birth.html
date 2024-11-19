@@ -3,20 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Birth of the Internet</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2a3d45;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #3c6478;
+            margin-bottom: 15px;
+        }
+
+        .topic {
+            margin-bottom: 25px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #2a3d45;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1em;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #70c1b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>The Birth of the Internet</h1>
+    <header>
+        The Birth of the Internet
+    </header>
 
-    <h2>ARPANET</h2>
-    <p>ARPANET, developed by the Advanced Research Projects Agency (ARPA), was the first network to implement TCP/IP, a protocol that forms the backbone of today’s internet. Originally designed to enable research institutions to communicate securely over long distances, ARPANET pioneered packet-switching technology, which revolutionized data transmission by breaking it into smaller packets. Created in 1969, ARPANET was groundbreaking, and in 1983, it adopted TCP/IP, allowing different networks to interact seamlessly, laying the foundation for the modern internet as we know it today.</p>
+    <main>
+        <section class="topic">
+            <h2>ARPANET</h2>
+            <ul>
+                <li><strong>What:</strong> ARPANET was the first network to implement the protocol suite TCP/IP, which became the foundation for the modern internet.</li>
+                <li><strong>When:</strong> ARPANET was developed in the late 1960s, with the first successful message sent in 1969.</li>
+                <li><strong>Why:</strong> The goal was to create a resilient communication network that could survive potential disruptions and ensure data could still be transferred.</li>
+                <li><strong>Who:</strong> ARPANET was developed by the Advanced Research Projects Agency (ARPA) of the U.S. Department of Defense.</li>
+                <li><strong>How:</strong> By using packet-switching technology, ARPANET allowed for distributed communication that laid the foundation for the internet.</li>
+            </ul>
+            <p>ARPANET's success demonstrated the power of packet-switching technology and provided the technical framework for what would later become the global internet. It also introduced TCP/IP, the standard protocol suite that is still in use today.</p>
+        </section>
 
-    <h2>Vint Cerf & Bob Kahn</h2>
-    <p>Vint Cerf and Bob Kahn, often called the “Fathers of the Internet,” were instrumental in creating the TCP/IP protocol, which became the standard for data communication. Their work in the 1970s addressed the growing need for reliable and consistent communication between different types of networks. By 1983, TCP/IP was fully implemented, allowing for the interoperability of previously incompatible systems. Their contributions were pivotal in transforming ARPANET into the global internet, making worldwide data sharing possible across diverse networks.</p>
+        <section class="topic">
+            <h2>TCP/IP and the Global Network</h2>
+            <ul>
+                <li><strong>What:</strong> Transmission Control Protocol/Internet Protocol (TCP/IP) is a set of communication protocols used to interconnect network devices on the internet.</li>
+                <li><strong>When:</strong> TCP/IP was adopted as the standard protocol for ARPANET in 1983, marking a crucial step in creating the internet as we know it.</li>
+                <li><strong>Why:</strong> TCP/IP was designed to enable reliable communication between different networks, making it the standard that enabled the internet to scale globally.</li>
+                <li><strong>Who:</strong> Vint Cerf and Bob Kahn are credited with developing TCP/IP, often referred to as the "fathers of the internet".</li>
+                <li><strong>How:</strong> TCP/IP provided a common language for computers to communicate, allowing disparate networks to connect and form a larger, more resilient global network.</li>
+            </ul>
+            <p>With the adoption of TCP/IP, networks could easily interconnect, allowing the internet to grow into the massive, interconnected web that we experience today. This protocol suite was fundamental in transforming a military project into a global communication phenomenon.</p>
+        </section>
 
-    <h2>Early ARPANET Programs</h2>
-    <p>In the early 1970s, programs like Gopher and Telnet were developed as some of the first practical applications of ARPANET. Gopher became an early search tool that allowed users to retrieve information, while Telnet provided remote access to other machines on the network, enabling researchers to log into systems across the country. These tools made ARPANET an essential platform for academic and research purposes, marking a significant step toward the internet's practical utility for users in education and beyond.</p>
+        <section class="topic">
+            <h2>Birth of the World Wide Web</h2>
+            <ul>
+                <li><strong>What:</strong> The World Wide Web (WWW) is an information system that allows documents to be connected via hyperlinks, accessible through the internet.</li>
+                <li><strong>When:</strong> The WWW was invented in 1989 by Tim Berners-Lee and became publicly accessible in 1991.</li>
+                <li><strong>Why:</strong> The purpose was to create a universal and accessible platform where information could be shared globally in a simple and intuitive way.</li>
+                <li><strong>Who:</strong> Tim Berners-Lee, a British scientist, is credited with inventing the World Wide Web while working at CERN.</li>
+                <li><strong>How:</strong> By combining hypertext with the TCP/IP protocol, Berners-Lee enabled users to access and navigate linked information on the internet.</li>
+            </ul>
+            <p>The World Wide Web transformed the internet from a technical infrastructure used by scientists and academics into a platform accessible to the public. It enabled the sharing of information, communication, and commerce, ultimately changing how society functions.</p>
+        </section>
+    </main>
 
-    <a href="index.html">Back to Home</a>
+    <footer>
+        <a href="index.html">Back to Home</a>
+    </footer>
 </body>
 </html>
