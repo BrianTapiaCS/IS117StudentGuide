@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Evolution of the Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1b0034, #440a67, #ff0099);
+            background-size: 300% 300%;
+            animation: gradientAnimation 8s ease infinite;
+            margin: 0;
+            padding: 0;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .navbar-brand:hover,
+        .nav-link:hover {
+            color: #ff0099 !important;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .era-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #ff0099;
+        }
+
+        .content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: white;
+            text-align: left;
+        }
+
+        .related-articles {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .related-articles h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff0099;
+        }
+
+        .related-articles .article {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            margin: 10px;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .related-articles .article:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            color: #ff0099;
+        }
+
+        .go-home {
+            display: block;
+            margin: 40px auto;
+            text-align: center;
+            background: linear-gradient(90deg, #ff0099, #ff4da6);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 150px;
+        }
+
+        .go-home:hover {
+            background: linear-gradient(90deg, #ff4da6, #ff0099);
+            transform: translateY(-5px);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tech Survival Guide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="git.html">Git</a></li>
+                    <li class="nav-item"><a class="nav-link" href="linux.html">Linux</a></li>
+                    <li class="nav-item"><a class="nav-link" href="web.html">Web</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section class="content container">
+        <h1 class="section-title">The Evolution of the Web</h1>
+        <h2 class="era-title">Web 1.0 (1989–2005)</h2>
+        <p>
+            The inception of the World Wide Web revolutionized communication. Tim Berners-Lee introduced fundamental
+            technologies like HTML, HTTP, and URLs, forming the backbone of the early internet. Browsers like NCSA
+            Mosaic and Netscape Navigator made the web accessible to the public.
+        </p>
+        <p>
+            Static web pages dominated this era, offering read-only content without user interaction. Technologies like
+            GeoCities allowed users to create personal websites, while early web portals like Yahoo! provided a central
+            hub for discovering information. This era also marked the beginning of e-commerce, with websites like
+            Amazon and eBay changing how people shop.
+        </p>
+        <p>
+            The "Browser Wars" between Netscape and Internet Explorer spurred innovation and competition, ultimately
+            shaping the modern web's functionality and standards. Search engines like AltaVista and Lycos emerged,
+            laying the groundwork for modern search algorithms.
+        </p>
+
+        <h2 class="era-title">Web 2.0 (2004–Present)</h2>
+        <p>
+            Web 2.0 shifted the internet from static pages to dynamic, user-generated content platforms. Social media,
+            cloud hosting, and advanced web technologies revolutionized how users interact with the web. Tools like REST
+            APIs and Node.js, along with Python's versatility, empowered developers to build scalable, interactive
+            applications.
+        </p>
+        <p>
+            Platforms like Facebook, YouTube, and Twitter have defined this era, enabling users to create, share, and
+            interact with content on an unprecedented scale. Collaborative tools such as Google Docs introduced real-time
+            editing and cloud storage, fundamentally changing workplace productivity.
+        </p>
+        <p>
+            Additionally, responsive web design and the rise of mobile-friendly websites have ensured seamless access
+            across devices. The emergence of JavaScript frameworks like Angular, React, and Vue.js has further enhanced
+            user experiences by enabling faster, more dynamic websites.
+        </p>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <a href="#" class="article">Tim Berners-Lee's Legacy: Explore the visionary's contributions to the web's foundation.</a>
+        <a href="#" class="article">The Rise of Social Media: How Web 2.0 redefined user interactions and online platforms.</a>
+        <a href="#" class="article">Browser Wars: A history of competition and its impact on web standards.</a>
+    </section>
+
+    <!-- Go Home Button -->
+    <a href="index.html" class="go-home">Go Home</a>
+</body>
+
+</html>

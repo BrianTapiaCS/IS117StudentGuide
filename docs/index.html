@@ -1,277 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Command Line Survival Guide for GIT and Linux</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-5sAR7xN1Nv6+BlhYzzZ90R0SLR9E+oWsqNij9Zqqy4M5h3CI8Dy+Fv5nsFQexE7k" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #eef2f7;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Survival Guide</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1b0034, #440a67, #ff0099);
+      background-size: 300% 300%;
+      animation: gradientAnimation 8s ease infinite;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
 
-        header {
-            background-color: #0d1b2a;
-            color: white;
-            padding: 40px;
-            text-align: center;
-            font-size: 2.5em;
-            font-weight: bold;
-        }
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        #hero {
-            background-color: #d1e3f0;
-            padding: 80px 20px;
-            text-align: center;
-            font-style: italic;
-            color: #0d1b2a;
-            position: relative;
-        }
+    .hero-section {
+      padding: 120px 20px;
+      text-align: left;
+    }
 
-        #hero img {
-            max-width: 50%;
-            height: auto;
-            margin: 30px auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
+    .hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* Add this for spacing */
+}
 
-        #hero p {
-            font-size: 2em;
-            margin-bottom: 30px;
-        }
+.typed-text {
+  margin-left: 0.5rem; /* Alternatively, add this to provide spacing */
+}
 
-        #hero button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            background-color: #ffc107;
-            color: #0d1b2a;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
+    .gradient-text {
+      background: linear-gradient(90deg, #ff4da6, #4c1d95, #ff0099);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        #hero button:hover {
-            background-color: #ff9800;
-        }
+    .typed-text {
+      display: inline-block;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid white;
+      animation: typing 4s steps(20, end), blink 0.5s step-end infinite;
+    }
 
-        #highlights {
-            display: flex;
-            justify-content: space-between;
-            padding: 60px 20px;
-            background-color: #ffffff;
-            border-top: 4px solid #0d1b2a;
-            border-bottom: 4px solid #0d1b2a;
-            flex-wrap: wrap;
-        }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
 
-        #highlights ul {
-            list-style: none;
-            padding: 0;
-        }
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: white; }
+    }
 
-        #highlights li {
-            margin-bottom: 20px;
-        }
+    .hero-text p {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
 
-        #highlights a {
-            color: #0d1b2a;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.5em;
-        }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      gap: 40px;
+    }
 
-        #highlights a:hover {
-            text-decoration: underline;
-        }
+    .stats .stat {
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+    }
 
-        #highlights .testimonial {
-            background-color: #f0f8ff;
-            padding: 20px;
-            border-left: 5px solid #0d1b2a;
-            margin-left: 20px;
-            margin-bottom: 20px;
-            font-style: italic;
-            font-size: 1.3em;
-            border-radius: 8px;
-            flex-basis: 100%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
+    .stats .stat-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-        #highlights .testimonial img {
-            max-width: 60px;
-            height: auto;
-            border-radius: 50%;
-            float: left;
-            margin-right: 15px;
-        }
+    .stats .stat-text {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 5px;
+    }
 
-        #guide {
-            background-color: #d1e3f0;
-            padding: 60px 20px;
-            text-align: center;
-            color: #0d1b2a;
-        }
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 500px;
+    }
 
-        .guide-section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+    }
 
-        .guide-section h3 {
-            margin-bottom: 15px;
-            color: #0d1b2a;
-            font-weight: bold;
-        }
+    .newsletter-form button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #ff0099, #ff4da6);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        .guide-section button {
-            padding: 12px 25px;
-            font-size: 1.1em;
-            background-color: #ffc107;
-            color: #0d1b2a;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
+    .newsletter-form button:hover {
+      background: linear-gradient(135deg, #ff4da6, #ff0099);
+    }
 
-        .guide-section button:hover {
-            background-color: #ff9800;
-        }
+    .guide-path {
+  background: linear-gradient(135deg, #250246, #36104b, #4d205e);
+  color: white;
+  padding: 60px 20px;
+  border-radius: 10px;
+}
 
-        footer {
-            background: linear-gradient(90deg, #0d1b2a, #243b55);
-            color: white;
-            text-align: center;
-            padding: 30px;
-            font-size: 1.1em;
-        }
+.guide-path h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
 
-        footer ul {
-            list-style: none;
-            padding: 0;
-        }
+.guide-step-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+}
 
-        footer li {
-            display: inline;
-            margin: 0 20px;
-        }
+.guide-step-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
 
-        footer a {
-            color: #ffc107;
-            text-decoration: none;
-        }
+.guide-step-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 10px 0 20px;
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+.explore-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 25px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-        .resources {
-            background-color: #e6f7e6;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+.explore-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
 
-        .resources h3 {
-            color: #0d1b2a;
-            font-weight: bold;
-        }
+.related-articles {
+  padding: 50px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin: 40px 20px;
+}
 
-        @media (max-width: 768px) {
-            #highlights {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 0, 153, 0.7);
+}
+
+.article-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.filter-tag {
+  padding: 5px 15px;
+  border: 1px solid white;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-tag:hover {
+  background: linear-gradient(135deg, #ff0099, #ff4da6);
+  color: black;
+}
+
+.related-articles {
+  padding: 50px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin: 40px 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 0, 153, 0.7);
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.article-card {
+  background: #250246;
+  border-radius: 15px;
+  padding: 20px;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.article-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.article-background {
+  background: linear-gradient(135deg, #4c1d95, #ff4da6);
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.article-icon {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.article-title {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.article-description {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.article-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.article-button:hover {
+  background: linear-gradient(135deg, #ff4da6, #ff0099);
+  color: black;
+}
+
+
+
+  </style>
 </head>
 <body>
-    <!-- Header - Authority Principle -->
-    <header>
-        <h1>Command Line Survival Guide for GIT and Linux</h1>
-        <p>Trusted Resource for Over 500 Students</p>
-    </header>
-
-    <!-- Hero Section (Z-pattern layout emphasis) -->
-    <section id="hero">
-        <p>Explore the history of the internet and master essential tech survival skills like Git, Linux, and more.</p>
-        <img src="image.png" alt="Tech Exploration">
-        <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-warning" onclick="location.href='#guide'">Get Started</button>
-        </div>
-    </section>
-
-    <!-- Social Proof - Highlights Section -->
-    <section id="highlights" class="container">
-        <ul class="list-group col-md-5 mb-4">
-            <li class="list-group-item"><a href="git.html">GIT: version control at your fingertips</a></li>
-            <li class="list-group-item"><a href="linux.html">Linux: master the open-source OS</a></li>
-            <li class="list-group-item"><a href="pre-internet.html">Pre-Internet Era</a></li>
-            <li class="list-group-item"><a href="internet-birth.html">The Birth of the Internet</a></li>
-            <li class="list-group-item"><a href="web1.0.html">Web 1.0: The Early Web</a></li>
-            <li class="list-group-item"><a href="web2.0.html">Web 2.0: Dynamic Web</a></li>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Tech Survival Guide</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+          <li class="nav-item"><a class="nav-link" href="git.html">Git</a></li>
+          <li class="nav-item"><a class="nav-link" href="linux.html">Linux</a></li>
+          <li class="nav-item"><a class="nav-link" href="web.html">Web</a></li>
         </ul>
-        <div class="testimonial col-md-6">
-            <img src="student.jpg" alt="Student Testimonial">
-            "The Command Line Survival Guide has been instrumental in my learning journey. It provided me with the essential tools I needed to succeed." - John Smith, Student
-            <br><br>
-            "This guide made learning Git and Linux incredibly straightforward. Now I feel much more confident in my technical abilities." - Jane Doe, Junior Developer
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-text">
+        <h1>
+          <span class="gradient-text">Your Ultimate Guide to</span>
+          <span class="typed-text"></span>
+        </h1>
+        <p>
+          Master Git, Linux, and web technologies with tools and resources tailored for the modern student.
+          Whether you're starting out or refining your skills, this guide empowers your journey in tech.
+        </p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">5K+</div>
+            <div class="stat-text">Students Helped</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">12K+</div>
+            <div class="stat-text">Courses Completed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">4.8/5</div>
+            <div class="stat-text">Positive Reviews</div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Guide Section with Commitment & Consistency Principle -->
-    <section id="guide">
-        <h2>Student Tech Survival Guide</h2>
-        <div class="guide-section">
-            <h3><a href="git.html">GIT Basics</a></h3>
-            <p>Master essential commands like git clone, git commit, and git push. Version control is the foundation of modern development practices.</p>
-            <button class="btn btn-warning" onclick="location.href='git_cheat_sheet.html'">Download Git Cheat Sheet</button>
+  
+  <section class="guide-path py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">This guide paves the way for you to learn</h2>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h3 class="guide-step-number">01</h3>
+          <h4 class="guide-step-title">History</h4>
+          <p class="guide-step-desc">Dive into foundational knowledge with easy-to-follow resources, helping you master core history step by step.</p>
+          <button class="explore-btn">Explore Learning</button>
         </div>
-        <div class="guide-section">
-            <h3><a href="linux.html">Linux Essentials</a></h3>
-            <p>Learn to navigate the Linux file system, use essential commands, and automate tasks with scripts.</p>
-            <button class="btn btn-warning" onclick="location.href='linux_commands_list.html'">Download Linux Commands List</button>
+        <div class="col-md-4 text-center">
+          <h3 class="guide-step-number">02</h3>
+          <h4 class="guide-step-title">Web</h4>
+          <p class="guide-step-desc">Enhance your skills with practical coding projects tailored to real-world web scenarios, boosting your expertise.</p>
+          <button class="explore-btn">Explore Web</button>
         </div>
-    </section>
+        <div class="col-md-4 text-center">
+          <h3 class="guide-step-number">03</h3>
+          <h4 class="guide-step-title">Grow</h4>
+          <p class="guide-step-desc">Build your confidence and expand your abilities with advanced techniques and community collaboration.</p>
+          <button class="explore-btn">Explore Web 2.0</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
 
-    <!-- Resources with Reciprocity Principle -->
-    <section class="resources container mt-5">
-        <h3>Free Resources</h3>
-        <p>To help you succeed, we offer free downloadable resources:</p>
-        <ul class="list-group">
-            <li class="list-group-item"><a href="command_line_cheat_sheet.pdf">Command Line Cheat Sheet</a> - Get a handy reference for essential command line commands.</li>
-            <li class="list-group-item"><a href="linux_guide.pdf">Linux Survival Guide</a> - Learn how to navigate and use Linux effectively.</li>
-            <li class="list-group-item"><a href="git_guide.pdf">Git Essentials Guide</a> - Understand the basics of version control with Git.</li>
-        </ul>
-    </section>
 
-    <!-- Footer with Reciprocity Principle -->
-    <footer>
-        <p>Trusted by over 500 students to jumpstart their tech career. Download free resources and master the command line today!</p>
-        <p>Connect with us for more resources:</p>
-        <ul>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
-        </ul>
-    </footer>
+  <!-- Testimonials Section -->
+  <section class="testimonials py-5">
+    <div class="container">
+      <h2 class="text-center mb-5" style="font-size: 2.5rem; color: #fff;">What Our Students Say</h2>
+      <div class="row align-items-center justify-content-center">
+        <!-- Testimonial 1 -->
+        <div class="col-md-5 text-center mb-4">
+          <div class="testimonial-card" style="background: linear-gradient(135deg, #6228b6, #8228b6); padding: 2rem; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe" class="img-fluid rounded-circle mb-3" style="width: 100px; height: 100px; border: 3px solid #fff;">
+            <h5 style="color: #fff; font-weight: 600;">John Doe</h5>
+            <p style="color: #eee; font-size: 1rem; line-height: 1.6;">
+              "This guide transformed my learning experience. The in-depth guides and tips helped me ace my tech courses and gave me the confidence to tackle new challenges in Git, Linux, and web technologies. Highly recommend it to any student!"
+            </p>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="col-md-5 text-center mb-4">
+          <div class="testimonial-card" style="background: linear-gradient(135deg, #28b672, #28a6b6); padding: 2rem; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jane Smith" class="img-fluid rounded-circle mb-3" style="width: 100px; height: 100px; border: 3px solid #fff;">
+            <h5 style="color: #fff; font-weight: 600;">Jane Smith</h5>
+            <p style="color: #eee; font-size: 1rem; line-height: 1.6;">
+              "A comprehensive and beginner-friendly guide! The Tech Survival Guide made navigating tools like Git and Linux so much easier, and the web technology tips were invaluable. It’s the ultimate resource for students aiming to excel!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AHRDxHEHeLl6ktvzSNNB6MQbFZzOg2pT4KnD1eC23uHknhRj5sw7yxz+4iVOX" crossorigin="anonymous"></script>
+  <section class="related-articles">
+    <h2 class="section-title">Related Articles</h2>
+    <div class="article-grid">
+      <div class="article-card">
+        <div class="article-background">
+          <h3 class="article-icon">💡</h3>
+        </div>
+        <h3 class="article-title">AI Takes Over Web Development</h3>
+        <p class="article-description">Discover how AI is revolutionizing coding, debugging, and project management.</p>
+        <a href="#" class="article-button">Read More</a>
+      </div>
+      <div class="article-card">
+        <div class="article-background">
+          <h3 class="article-icon">☁️</h3>
+        </div>
+        <h3 class="article-title">Cloud Computing Trends in 2024</h3>
+        <p class="article-description">The latest innovations in cloud computing and how they shape the tech world.</p>
+        <a href="#" class="article-button">Read More</a>
+      </div>
+      <div class="article-card">
+        <div class="article-background">
+          <h3 class="article-icon">🔒</h3>
+        </div>
+        <h3 class="article-title">Top 5 Cybersecurity Practices</h3>
+        <p class="article-description">Stay safe online with these essential cybersecurity techniques and tools.</p>
+        <a href="#" class="article-button">Read More</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Trusted by Brands Section -->
+  <section class="trusted-brands py-4" style="background: linear-gradient(135deg, #250246, #441768, #621C8B); color: #fff;">
+    <div class="container text-center">
+      <h2 style="font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem;">Powering Leading Brands</h2>
+      <div class="row justify-content-center align-items-center">
+        <!-- Amazon -->
+        <div class="col-6 col-md-2 mb-3 mb-md-0">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="img-fluid" style="width: 90px; filter: invert(100%);">
+        </div>
+        <!-- Slack -->
+        <div class="col-6 col-md-2 mb-3 mb-md-0">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" alt="Slack" class="img-fluid" style="width: 90px;">
+        </div>
+        <!-- TypeScript -->
+        <div class="col-6 col-md-2 mb-3 mb-md-0">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript" class="img-fluid" style="width: 90px;">
+        </div>
+        <!-- Adobe -->
+        <div class="col-6 col-md-2 mb-3 mb-md-0">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Adobe_Systems_logo_and_wordmark.svg" alt="Adobe" class="img-fluid" style="width: 90px; filter: invert(100%);">
+        </div>
+        <!-- Netflix -->
+        <div class="col-6 col-md-2">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="img-fluid" style="width: 90px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  
+
+  <script>
+    const texts = [" Mastering Tech Skills", " Acing Linux and Git", " Thriving in Web Development"];
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+
+    (function type() {
+      if (count === texts.length) {
+        count = 0;
+      }
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+
+      document.querySelector(".typed-text").textContent = letter;
+      if (letter.length === currentText.length) {
+        count++;
+        index = 0;
+        setTimeout(type, 1000);
+      } else {
+        setTimeout(type, 100);
+      }
+    })();
+  </script>
+
+<footer style="background-color: #1b0034; color: #bbb; padding: 20px 0; text-align: center; position: relative;">
+    <div class="container">
+      <!-- Footer Description -->
+      <p style="margin: 0; font-size: 1rem;">Empowering students to master Git, Linux, and web development technologies.</p>
+      
+      <!-- Social Media Icons -->
+      <div style="margin: 15px 0;">
+        <a href="#" style="text-decoration: none; margin: 0 10px;">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter--v1.png" alt="Twitter" style="width: 24px;">
+        </a>
+        <a href="#" style="text-decoration: none; margin: 0 10px;">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn" style="width: 24px;">
+        </a>
+        <a href="#" style="text-decoration: none; margin: 0 10px;">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram" style="width: 24px;">
+        </a>
+        <a href="#" style="text-decoration: none; margin: 0 10px;">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook--v1.png" alt="Facebook" style="width: 24px;">
+        </a>
+      </div>
+      
+      <!-- Legal Information -->
+      <p style="margin: 0; font-size: 0.875rem;">
+        &copy; 2024 Tech Survival Guide. All Rights Reserved. 
+        <a href="#" style="color: #bbb; text-decoration: none; margin: 0 10px;">Terms of Service</a> | 
+        <a href="#" style="color: #bbb; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+      </p>
+      
+      <!-- Scroll to Top -->
+      <a href="#" style="position: absolute; bottom: 20px; right: 20px; background: #440a67; color: white; border-radius: 50%; padding: 10px; display: inline-block;">
+        &#8593;
+      </a>
+    </div>
+  </footer>
+  
 </body>
 </html>

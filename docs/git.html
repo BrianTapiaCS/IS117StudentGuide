@@ -3,128 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GIT Basics</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Learn Git</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* General Styling */
         body {
-            font-family: 'Lato', sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1b0034, #440a67, #ff0099);
+            background-size: 300% 300%;
+            animation: gradientAnimation 8s ease infinite;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        header {
-            background-color: #2a3d45;
             color: white;
-            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ff0099 !important;
+        }
+
+        .hero-section {
             text-align: center;
-            font-size: 2em;
+            padding: 60px 20px;
         }
 
-        main {
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ff4da6, #4c1d95, #ff0099);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .commands-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .commands-grid {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
 
-        h2 {
-            color: #3c6478;
+        .command {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .command:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .command img {
+            width: 60px;
             margin-bottom: 15px;
         }
 
-        .intro {
-            margin-bottom: 25px;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .command h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ff4da6;
         }
 
-        .commands {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 25px;
-            width: 100%;
+        .command p {
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
-        .progress {
-            background: #ffffff;
+        .checklist {
+            position: fixed;
+            top: 20%;
+            right: 2%;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
+            width: 200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .checklist h3 {
+            font-size: 1.2rem;
+            color: #ff4da6;
+            margin-bottom: 15px;
+        }
+
+        .checklist p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .checklist button {
+            background: linear-gradient(90deg, #ff0099, #ff4da6);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checklist button:hover {
+            background: linear-gradient(90deg, #ff4da6, #ff0099);
         }
 
         footer {
-            background-color: #2a3d45;
+            background: rgba(0, 0, 0, 0.8);
             color: white;
+            padding: 20px 10px;
             text-align: center;
-            padding: 20px;
-            font-size: 1em;
-            margin-top: 40px;
         }
 
-        a {
-            color: #70c1b3;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        GIT Basics
-    </header>
 
-    <main>
-        <section class="intro">
-            <h2>Your trusted guide for mastering Git version control</h2>
-            <p>Git is an open-source version control system that allows you to track changes in your code and collaborate with others. Mastering Git is a fundamental skill for developers, enabling efficient project management and teamwork.</p>
-        </section>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Tech Survival Guide</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+          <li class="nav-item"><a class="nav-link" href="git.html">Git</a></li>
+          <li class="nav-item"><a class="nav-link" href="linux.html">Linux</a></li>
+          <li class="nav-item"><a class="nav-link" href="web.html">Web</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-        <section class="commands">
-            <h2>Core Git Commands</h2>
-            <ul>
-                <li><strong>git clone:</strong> Clone a repository to your local machine.</li>
-                <li><strong>git commit:</strong> Save your changes with a descriptive message.</li>
-                <li><strong>git push:</strong> Push your changes to a remote repository.</li>
-                <li><strong>git pull:</strong> Update your local repository to the newest commit.</li>
-                <li><strong>git branch:</strong> Create, list, or delete branches to manage features.</li>
-            </ul>
-        </section>
+<section class="intro container">
+    <h2>What is Git?</h2>
+    <p>
+        Git is a distributed version control system designed to handle everything from small to very large projects with speed and efficiency. Created by Linus Torvalds in 2005, it is now the de facto standard for version control and collaboration in software development.
+    </p>
+    <p>
+        One of Git's key features is its distributed nature. Unlike centralized version control systems, where the history is stored on a single server, Git allows every developer to have a full copy of the repository, including all its history, on their local machine. This approach enhances performance and ensures that developers can continue working even when they are offline.
+    </p>
+    <p>
+        Git's branching and merging capabilities are another standout feature. Developers can create branches to work on specific tasks or features independently, without affecting the main codebase. Once their work is complete, Git's merging tools make it straightforward to integrate the changes back into the main branch. These capabilities have given rise to modern workflows like Gitflow and feature branching, enabling teams to work collaboratively and manage complex projects effectively.
+    </p>
+    <p>
+        Additionally, Git provides a wide array of commands and tools for managing code changes, inspecting repository history, and resolving conflicts. Its versatility and integration with platforms like GitHub and GitLab make it an essential tool for software developers worldwide.
+    </p>
+</section>
 
-        <section class="progress">
-            <h2>Track Your Progress</h2>
-            <p>Check off each task as you complete it to track your progress in mastering Git:</p>
-            <p><input type="checkbox" id="clone" name="clone"> Clone a repository</p>
-            <p><input type="checkbox" id="commit" name="commit"> Commit your changes</p>
-            <p><input type="checkbox" id="push" name="push"> Push to a remote repository</p>
-            <p><input type="checkbox" id="branch" name="branch"> Create a new branch</p>
-            <p><input type="checkbox" id="pull" name="pull"> Pull changes from the remote repository</p>
-        </section>
-    </main>
+<section class="commands-section">
+    <div class="container">
+        <h2>Core Git Commands</h2>
+        <div class="commands-grid">
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Git Commit">
+                <h3>Git Commit</h3>
+                <p>Save changes to your local repository with snapshots of your progress.</p>
+            </div>
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/1822/1822927.png" alt="Git Branch">
+                <h3>Git Branch</h3>
+                <p>Create and manage branches to experiment or develop features.</p>
+            </div>
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/3011/3011270.png" alt="Git Push">
+                <h3>Git Push</h3>
+                <p>Push local changes to the remote repository for sharing and collaboration.</p>
+            </div>
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/3616/3616795.png" alt="Git Pull">
+                <h3>Git Pull</h3>
+                <p>Fetch and merge changes from a remote repository to your local branch.</p>
+            </div>
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/4411/4411318.png" alt="Git Merge">
+                <h3>Git Merge</h3>
+                <p>Combine changes from different branches into a single branch.</p>
+            </div>
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/1046/1046866.png" alt="Git Clone">
+                <h3>Git Clone</h3>
+                <p>Create a local copy of a remote repository, the first step in collaboration.</p>
+            </div>
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/482/482162.png" alt="Git Status">
+                <h3>Git Status</h3>
+                <p>Display the state of your working directory and staging area.</p>
+            </div>
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/564/564619.png" alt="Git Log">
+                <h3>Git Log</h3>
+                <p>View a detailed log of commits in the repository's history.</p>
+            </div>
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/711/711284.png" alt="Git Stash">
+                <h3>Git Stash</h3>
+                <p>Temporarily save changes you’re not ready to commit yet.</p>
+            </div>
+            <div class="command">
+                <img src="https://cdn-icons-png.flaticon.com/512/3468/3468808.png" alt="Git Reset">
+                <h3>Git Reset</h3>
+                <p>Undo changes in your working directory or reset your repository to a previous state.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        <a href="index.html">Back to Home</a>
-    </footer>
+
+<!-- Checklist -->
+<div class="checklist">
+    <h3>Track Your Progress</h3>
+    <p><input type="checkbox"> Clone a repository</p>
+    <p><input type="checkbox"> Commit your changes</p>
+    <p><input type="checkbox"> Push to a remote repository</p>
+    <p><input type="checkbox"> Create a new branch</p>
+    <p><input type="checkbox"> Pull changes from the remote repository</p>
+    <button onclick="resetChecklist()">Reset Checklist</button>
+</div>
+<!-- Go Home Button Section -->
+<!-- Go Home Button Section -->
+<section class="go-home-section">
+    <div class="container text-center">
+        <a href="index.html" class="go-home-button">Go Home</a>
+    </div>
+</section>
+
+<style>
+    /* Go Home Button Styling */
+    .go-home-section {
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .go-home-button {
+        display: inline-block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #fff;
+        background: linear-gradient(135deg, #ff0099, #4c1d95);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        box-shadow: 0px 4px 15px rgba(255, 0, 153, 0.5);
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .go-home-button:hover {
+        background: linear-gradient(135deg, #4c1d95, #ff0099);
+        box-shadow: 0px 6px 20px rgba(255, 0, 153, 0.8);
+        transform: translateY(-5px);
+    }
+
+    .go-home-button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: skewX(-45deg);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .go-home-button:hover:before {
+        left: 100%;
+    }
+</style>
+
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Tech Survival Guide. All rights reserved.</p>
+</footer>
+
+<script>
+    function resetChecklist() {
+        document.querySelectorAll('.checklist input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+    }
+</script>
 </body>
+
+
 </html>
