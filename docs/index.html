@@ -38,6 +38,44 @@
   gap: 0.5rem; /* Add this for spacing */
 }
 
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Spread content across the container */
+  max-width: 1200px;
+  margin: 0 auto; /* Center the container */
+  flex-wrap: wrap; /* Wrap items for smaller screens */
+}
+
+.hero-image-container {
+  flex: 1; /* Allow equal space distribution */
+  text-align: center; /* Center the image horizontally */
+}
+
+.hero-image {
+  max-width: 50%; /* Limit the size of the image */
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 10px 30px rgba(255, 0, 153, 0.5); /* Glowing shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth hover effect */
+}
+
+.hero-image:hover {
+  transform: scale(1.05); /* Zoom effect */
+  box-shadow: 0 15px 40px rgba(255, 0, 153, 0.8); /* Enhance shadow on hover */
+}
+
+.hero-text {
+  flex: 1; /* Adjust text container */
+  max-width: 80%; /* Limit the text container width */
+  text-align: left; /* Align text to the left */
+}
+
+
+
+
 .typed-text {
   margin-left: 0.5rem; /* Alternatively, add this to provide spacing */
 }
@@ -320,39 +358,46 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-text">
-        <h1>
-          <span class="gradient-text">Your Ultimate Guide to</span>
-          <span class="typed-text"></span>
-        </h1>
-        <p>
-          Master Git, Linux, and web technologies with tools and resources tailored for the modern student.
-          Whether you're starting out or refining your skills, this guide empowers your journey in tech.
-        </p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-number">5K+</div>
-            <div class="stat-text">Students Helped</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">12K+</div>
-            <div class="stat-text">Courses Completed</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">4.8/5</div>
-            <div class="stat-text">Positive Reviews</div>
-          </div>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container hero-content">
+    <!-- Image -->
+    <div class="hero-image-container">
+      <img src="hero.jpg" alt="Tech Journey Illustration" class="hero-image">
+    </div>
+
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <h1>
+        <span class="gradient-text">Your Ultimate Guide to</span>
+        <span class="typed-text"></span>
+      </h1>
+      <p>
+        Master Git, Linux, and web technologies with tools and resources tailored for the modern student.
+        Whether you're starting out or refining your skills, this guide empowers your journey in tech.
+      </p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">5K+</div>
+          <div class="stat-text">Students Helped</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">12K+</div>
+          <div class="stat-text">Courses Completed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">4.8/5</div>
+          <div class="stat-text">Positive Reviews</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   
   <section class="guide-path py-5">
